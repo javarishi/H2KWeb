@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,7 +24,10 @@ public class HelloWorld extends HttpServlet {
 			throws ServletException, IOException {
 		// getting details from request
 		 String simpleParm =  req.getParameter("name");
+
+
 		 PrintWriter writer = resp.getWriter();
+		 resp.setContentType("text/html");
 		 Enumeration<String> params = req.getParameterNames();
 		 String param;
 		 if(params != null){
@@ -56,6 +60,16 @@ public class HelloWorld extends HttpServlet {
 		
 		 writer.println("Hello World :: " + simpleParm );
 		 System.out.println(" I am not sending the response");
+		 
+		 // Add Cookie
+		 Cookie cookie1 = new Cookie("CustomerName", "Nick");
+		 Cookie cookie2 = new Cookie("SessionId", "938478234HJSlk2198");
+		 Cookie cookie3 = new Cookie("CustomerId", "0121");
+		 
+		 resp.addCookie(cookie1);
+		 resp.addCookie(cookie2);
+		 resp.addCookie(cookie3);
+		 
 		 resp.flushBuffer();
 		
 	}
