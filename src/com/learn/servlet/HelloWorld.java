@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,13 @@ public class HelloWorld extends HttpServlet {
 			throws ServletException, IOException {
 		// getting details from request
 		 String simpleParm =  req.getParameter("name");
-
-
+		 // Operating on Context Attribues
+		 ServletContext context = getServletContext();
+		 
+		 context.setAttribute("AttrName1", "AttrValue1");
+		 context.setAttribute("AttrName1", "Changed Value");
+		 context.removeAttribute("AttrName1");
+	
 		 PrintWriter writer = resp.getWriter();
 		 resp.setContentType("text/html");
 		 Enumeration<String> params = req.getParameterNames();

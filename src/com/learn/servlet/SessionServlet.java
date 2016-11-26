@@ -19,17 +19,16 @@ public class SessionServlet extends HttpServlet{
 		HttpSession session = req.getSession(); // create session
 		
 		PrintWriter writer = resp.getWriter();
+		writer.println("<HTML><HEAD><TITLE>Session Count</TITLE></HEAD>");
+		writer.println("<BODY><H1>Session Count</H1>");
 		
 		writer.println("Is New Session :: " + session.isNew());
 		writer.println("Session timeout :: " + session.getMaxInactiveInterval());
 		writer.println("Creation Time " + session.getCreationTime());
 		
+		writer.println("Click <A HREF=\"" + resp.encodeURL(req.getContextPath() + "/hello") + "\">here</A>");
 		
-		
-		
-		
-		
-		
+		writer.println("</BODY></HTML>");
 		
 	}
 }
