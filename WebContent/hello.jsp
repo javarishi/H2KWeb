@@ -21,8 +21,9 @@
 	
 	pageContext.setAttribute("Name","Value", PageContext.SESSION_SCOPE);  
 	
-	String value =  (String )pageContext.getAttribute("Name", pageContext.SESSION_SCOPE);
-	out.println("value  " + value);
+	String value =  (String )pageContext.getAttribute("Name", PageContext.APPLICATION_SCOPE);
+	out.println("value  " + value + "\n\n");
+	out.print("Origin" + request.getAttribute("Origin"));
 	
 %>
 <p>
