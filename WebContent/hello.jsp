@@ -19,7 +19,7 @@
 	out.println("Hello  " + name);
 	request.setAttribute("Name", "Value");
 	
-	pageContext.setAttribute("Name","Value", pageContext.SESSION_SCOPE);  
+	pageContext.setAttribute("Name","Value", PageContext.SESSION_SCOPE);  
 	
 	String value =  (String )pageContext.getAttribute("Name", pageContext.SESSION_SCOPE);
 	out.println("value  " + value);
